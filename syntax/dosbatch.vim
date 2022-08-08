@@ -41,12 +41,12 @@ syn match dosbatchOperator      "\s\(&\||\|^\|<<\|>>\)=\="
 syn match dosbatchIfOperator    "if\s\+\(\(not\)\=\s\+\)\=\(exist\|defined\|errorlevel\|cmdextversion\)\="lc=2
 
 " String - using "'s is a convenience rather than a requirement outside of FOR
-syn match dosbatchString	"\"[^"]*\"" contains=dosbatchVariable,dosBatchArgument,dosbatchSpecialChar,@dosbatchNumber,@Spell
+syn match dosbatchString	"\"[^"]*\"" contains=dosbatchVariable,dosbatchArgument,dosbatchSpecialChar,@dosbatchNumber,@Spell
 syn match dosbatchString	"\<echo\([^)>|]\|\^\@<=[)>|]\)*"lc=4 contains=dosbatchVariable,dosbatchArgument,dosbatchSpecialChar,@dosbatchNumber,@Spell
 syn match dosbatchEchoOperator  "\<echo\s\+\(on\|off\)\s*$"lc=4
 
 " For embedded commands
-syn match dosbatchCmd		"(\s*'[^']*'"lc=1 contains=dosbatchString,dosbatchVariable,dosBatchArgument,@dosbatchNumber,dosbatchImplicit,dosbatchStatement,dosbatchConditional,dosbatchRepeat,dosbatchOperator
+syn match dosbatchCmd		"(\s*'[^']*'"lc=1 contains=dosbatchString,dosbatchVariable,dosbatchArgument,@dosbatchNumber,dosbatchImplicit,dosbatchStatement,dosbatchConditional,dosbatchRepeat,dosbatchOperator
 
 " Numbers - surround with ws to not include in dir and filenames
 syn match dosbatchInteger       "[[:space:]=(/:,!~-]\d\+"lc=1
