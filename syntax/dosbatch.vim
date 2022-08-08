@@ -36,7 +36,8 @@ syn case ignore
 syn match dosbatchOperator      "\s[-+\*/%!~]\s"
 syn match dosbatchOperator      "="
 syn match dosbatchOperator      "[-+\*/%]="
-syn match dosbatchOperator      "\s\(&\||\|^\|<<\|>>\)=\=\s"
+syn match dosbatchOperator      "\s\(&\||\|^\|<<\|>>\)=\="
+                            " XXX ^ A leading whitespace character isn't required?
 syn match dosbatchIfOperator    "if\s\+\(\(not\)\=\s\+\)\=\(exist\|defined\|errorlevel\|cmdextversion\)\="lc=2
 
 " String - using "'s is a convenience rather than a requirement outside of FOR
@@ -88,9 +89,11 @@ syn match dosbatchLabel		"\<goto\s\+\h\w*\>"lc=4
 syn match dosbatchLabel		":\h\w*\>"
 
 " Comments - usual rem but also two colons as first non-space is an idiom
+" XXX Get rid of the repetition in the following lines.
 syn match dosbatchComment	"^rem\($\|\s.*$\)"lc=3 contains=dosbatchTodo,dosbatchSpecialChar,@dosbatchNumber,dosbatchVariable,dosbatchArgument,@Spell
 syn match dosbatchComment	"^@rem\($\|\s.*$\)"lc=4 contains=dosbatchTodo,@dosbatchNumber,dosbatchVariable,dosbatchArgument,@Spell
 syn match dosbatchComment	"\srem\($\|\s.*$\)"lc=4 contains=dosbatchTodo,dosbatchSpecialChar,@dosbatchNumber,dosbatchVariable,dosbatchArgument,@Spell
+syn match dosbatchComment	"&rem\($\|\s.*$\)"lc=4 contains=dosbatchTodo,dosbatchSpecialChar,@dosbatchNumber,dosbatchVariable,dosbatchArgument,@Spell
 syn match dosbatchComment	"\s@rem\($\|\s.*$\)"lc=5 contains=dosbatchTodo,@dosbatchNumber,dosbatchVariable,dosbatchArgument,@Spell
 syn match dosbatchComment	"\s*:\s*:.*$" contains=dosbatchTodo,dosbatchSpecialChar,@dosbatchNumber,dosbatchVariable,dosbatchArgument,@Spell
 

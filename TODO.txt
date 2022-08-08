@@ -1,0 +1,2 @@
+Automate tests in tests/.
+    Use Vim's TOhtml command? TOhtml outputs the syntax highlighting used. (https://github.com/pboettch/vim-cmake-syntax/tree/master/test uses TOhtml.)
