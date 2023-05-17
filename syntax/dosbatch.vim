@@ -89,16 +89,16 @@ syn match dosbatchLabel		"\<goto\s\+\h\w*\>"lc=4
 syn match dosbatchLabel		":\h\w*\>"
 
 " Comments - usual rem but also two colons as first non-space is an idiom
-syn match dosbatchComment	"\(\(^\|\s\|&\)rem\)\@<=\($\|\s.*$\)" contains=dosbatchTodo,dosbatchSpecialChar,@dosbatchNumber,dosbatchVariable,dosbatchArgument,@Spell
-syn match dosbatchComment	"\(\(^\|\s\|&\)@rem\)\@<=\($\|\s.*$\)" contains=dosbatchTodo,@dosbatchNumber,dosbatchVariable,dosbatchArgument,@Spell
+syn match dosbatchComment	"\(\(^\|\s\|&\)rem\)\@<=\($\|\s.*$\)" contains=dosbatchTodo,dosbatchSpecialChar,dosbatchVariable,dosbatchArgument,@Spell
+syn match dosbatchComment	"\(\(^\|\s\|&\)@rem\)\@<=\($\|\s.*$\)" contains=dosbatchTodo,dosbatchVariable,dosbatchArgument,@Spell
 if exists("dosbatch_colons_comment")
-  syn match dosbatchComment	"\s*:\s*:.*$" contains=dosbatchTodo,dosbatchSpecialChar,@dosbatchNumber,dosbatchVariable,dosbatchArgument,@Spell
+  syn match dosbatchComment	"\s*:\s*:.*$" contains=dosbatchTodo,dosbatchSpecialChar,dosbatchVariable,dosbatchArgument,@Spell
 else
   syn match dosbatchError       "\s*:\s*:.*$"
 endif
 
 " Comments in ()'s - still to handle spaces before rem
-syn match dosbatchComment	"(rem\([^)]\|\^\@<=)\)*"lc=4 contains=dosbatchTodo,@dosbatchNumber,dosbatchVariable,dosbatchArgument,@Spell
+syn match dosbatchComment	"(rem\([^)]\|\^\@<=)\)*"lc=4 contains=dosbatchTodo,dosbatchVariable,dosbatchArgument,@Spell
 
 syn keyword dosbatchImplicit    append assoc at attrib break cacls cd chcp chdir
 syn keyword dosbatchImplicit    chkdsk chkntfs cls cmd color comp compact convert copy
