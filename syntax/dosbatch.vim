@@ -89,11 +89,10 @@ syn match dosbatchLabel		"\<goto\s\+\h\w*\>"lc=4
 syn match dosbatchLabel		":\h\w*\>"
 
 " Comments - usual rem but also two colons as first non-space is an idiom
-" XXX Get rid of the repetition in the following lines.
+" XXX Get rid of the repetition in the following lines. Consider using /\@<= instead of lc (see :help syn-lc).
 syn match dosbatchComment	"^rem\($\|\s.*$\)"lc=3 contains=dosbatchTodo,dosbatchSpecialChar,@dosbatchNumber,dosbatchVariable,dosbatchArgument,@Spell
 syn match dosbatchComment	"^@rem\($\|\s.*$\)"lc=4 contains=dosbatchTodo,@dosbatchNumber,dosbatchVariable,dosbatchArgument,@Spell
-syn match dosbatchComment	"\srem\($\|\s.*$\)"lc=4 contains=dosbatchTodo,dosbatchSpecialChar,@dosbatchNumber,dosbatchVariable,dosbatchArgument,@Spell
-syn match dosbatchComment	"&rem\($\|\s.*$\)"lc=4 contains=dosbatchTodo,dosbatchSpecialChar,@dosbatchNumber,dosbatchVariable,dosbatchArgument,@Spell
+syn match dosbatchComment	"\(\s\|&\)rem\($\|\s.*$\)"lc=4 contains=dosbatchTodo,dosbatchSpecialChar,@dosbatchNumber,dosbatchVariable,dosbatchArgument,@Spell
 syn match dosbatchComment	"\s@rem\($\|\s.*$\)"lc=5 contains=dosbatchTodo,@dosbatchNumber,dosbatchVariable,dosbatchArgument,@Spell
 if exists("dosbatch_colons_comment")
   syn match dosbatchComment	"\s*:\s*:.*$" contains=dosbatchTodo,dosbatchSpecialChar,@dosbatchNumber,dosbatchVariable,dosbatchArgument,@Spell
