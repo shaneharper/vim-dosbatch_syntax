@@ -90,7 +90,7 @@ syn match dosbatchLabel		":\h\w*\>"
 
 " Comments - usual rem but also two colons as first non-space is an idiom
 syn match dosbatchComment	"\(\(^\|\s\|&\)rem\)\@<=\($\|\s.*$\)" contains=dosbatchTodo,dosbatchSpecialChar,dosbatchVariable,dosbatchArgument,@Spell
-syn match dosbatchComment	"\(\(^\|\s\|&\)@rem\)\@<=\($\|\s.*$\)" contains=dosbatchTodo,dosbatchVariable,dosbatchArgument,@Spell
+syn match dosbatchComment	"\(\(^\|\s\|&\)@rem\)\@<=\($\|\s.*$\)" contains=dosbatchTodo,@Spell  " Note that this doesn't contain dosbatchVariable, etc. '@' stops "echoing". Where what follows REM will be displayed ("echoed") there may be value in coloring variables, etc. different to the rest of the comment text to show they are "special" (cmd.exe will substitute the value of a variable in place of its name).
 if exists("dosbatch_colons_comment")
   syn match dosbatchComment	"\s*:\s*:.*$" contains=dosbatchTodo,dosbatchSpecialChar,dosbatchVariable,dosbatchArgument,@Spell
 else
