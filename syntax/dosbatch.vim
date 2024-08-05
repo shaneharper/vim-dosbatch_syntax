@@ -141,8 +141,6 @@ hi def link dosbatchOctal	dosbatchNumber
 hi def link dosbatchComment	Comment
 hi def link dosbatchImplicit	Function
 
-hi def link dosbatchSwitch	Special
-
 hi def link dosbatchCmd		PreProc
 
 
